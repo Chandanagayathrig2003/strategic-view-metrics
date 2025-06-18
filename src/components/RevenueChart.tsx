@@ -2,12 +2,18 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const data = [
-  { month: 'Jan', revenue: 185000, target: 180000 },
-  { month: 'Feb', revenue: 195000, target: 190000 },
-  { month: 'Mar', revenue: 210000, target: 200000 },
-  { month: 'Apr', revenue: 225000, target: 215000 },
-  { month: 'May', revenue: 240000, target: 230000 },
-  { month: 'Jun', revenue: 255000, target: 245000 },
+  { month: 'Jan', revenue: 425000, target: 400000 },
+  { month: 'Feb', revenue: 380000, target: 420000 },
+  { month: 'Mar', revenue: 510000, target: 450000 },
+  { month: 'Apr', revenue: 485000, target: 480000 },
+  { month: 'May', revenue: 620000, target: 500000 },
+  { month: 'Jun', revenue: 580000, target: 550000 },
+  { month: 'Jul', revenue: 720000, target: 600000 },
+  { month: 'Aug', revenue: 695000, target: 650000 },
+  { month: 'Sep', revenue: 780000, target: 700000 },
+  { month: 'Oct', revenue: 850000, target: 750000 },
+  { month: 'Nov', revenue: 920000, target: 800000 },
+  { month: 'Dec', revenue: 1100000, target: 900000 },
 ];
 
 export const RevenueChart = () => {
@@ -15,7 +21,7 @@ export const RevenueChart = () => {
     <div className="h-64">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.2} />
           <XAxis 
             dataKey="month" 
             axisLine={false}
@@ -32,10 +38,11 @@ export const RevenueChart = () => {
             formatter={(value, name) => [`$${Number(value).toLocaleString()}`, name === 'revenue' ? 'Revenue' : 'Target']}
             labelStyle={{ color: '#374151' }}
             contentStyle={{ 
-              backgroundColor: 'white', 
+              backgroundColor: 'rgba(255, 255, 255, 0.95)', 
               border: '1px solid #e5e7eb',
               borderRadius: '8px',
-              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+              backdropFilter: 'blur(8px)'
             }}
           />
           <Line 
@@ -49,7 +56,7 @@ export const RevenueChart = () => {
           <Line 
             type="monotone" 
             dataKey="target" 
-            stroke="#e5e7eb" 
+            stroke="#9ca3af" 
             strokeWidth={2}
             strokeDasharray="5 5"
             dot={false}

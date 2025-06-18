@@ -2,19 +2,19 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const data = [
-  { product: 'Product A', sales: 4200 },
-  { product: 'Product B', sales: 3800 },
-  { product: 'Product C', sales: 3200 },
-  { product: 'Product D', sales: 2800 },
-  { product: 'Product E', sales: 2400 },
+  { product: 'Enterprise Suite', sales: 8420 },
+  { product: 'Professional Plan', sales: 6850 },
+  { product: 'Starter Package', sales: 5240 },
+  { product: 'Add-on Services', sales: 3780 },
+  { product: 'Mobile App', sales: 2950 },
 ];
 
 export const ProductChart = () => {
   return (
     <div className="h-64">
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={data} layout="horizontal" margin={{ left: 60 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+        <BarChart data={data} layout="horizontal" margin={{ left: 80 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.2} />
           <XAxis 
             type="number"
             axisLine={false}
@@ -27,17 +27,18 @@ export const ProductChart = () => {
             dataKey="product"
             axisLine={false}
             tickLine={false}
-            tick={{ fill: '#6b7280', fontSize: 12 }}
-            width={60}
+            tick={{ fill: '#6b7280', fontSize: 11 }}
+            width={80}
           />
           <Tooltip 
-            formatter={(value) => [`${Number(value).toLocaleString()}`, 'Sales']}
+            formatter={(value) => [`${Number(value).toLocaleString()} units`, 'Sales Volume']}
             labelStyle={{ color: '#374151' }}
             contentStyle={{ 
-              backgroundColor: 'white', 
+              backgroundColor: 'rgba(255, 255, 255, 0.95)', 
               border: '1px solid #e5e7eb',
               borderRadius: '8px',
-              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+              backdropFilter: 'blur(8px)'
             }}
           />
           <Bar 
